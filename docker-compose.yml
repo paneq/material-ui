@@ -1,8 +1,10 @@
-hub:
-  image: selenium/hub:3.141.0
-  ports:
-    - 4444:4444
-chrome:
-  image: selenium/node-chrome:3.141.0
-  links:
-    - hub
+version: '3.4'
+
+services:
+  devmaterialui:
+    tty: true
+    stdin_open: true
+    build:
+      dockerfile: Dockerfile
+      context: .
+    entrypoint: ["tail", "-f", "/dev/null"]
